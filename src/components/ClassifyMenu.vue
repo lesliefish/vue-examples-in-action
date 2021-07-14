@@ -5,10 +5,10 @@
     @mouseleave="isMouseHover = false"
   >
     <span class="name">{{ name }}</span>
-    <span></span>
+    <img class="drop-down-icon" src="../assets/dropDown.png" />
 
     <ul v-show="isMouseHover">
-      <li v-for="item in subItems" :key="item.name">
+      <li v-for="item in subItems" :key="item.name" @click="jump(item.name)">
         {{ item.name }}
       </li>
     </ul>
@@ -35,6 +35,11 @@ export default {
       isMouseHover: false,
     };
   },
+  methods: {
+    jump: function (name) {
+      this.$emit('chooseEvent', name);
+    },
+  },
 };
 </script>
 
@@ -43,32 +48,38 @@ export default {
   float: left;
   position: relative;
   text-align: left;
-  height: 32px;
+  height: 50px;
   cursor: pointer;
   margin-right: 10px;
   margin-left: 10px;
 }
-.main:hover {
-  /* border-bottom: 1px solid #4a73e2; */
+.drop-down-icon {
+  margin: 5px;
+  margin-top: 12px;
+  width: 10px;
+  height: 10px;
+  float: left;
 }
+
 .name {
+  float: left;
   text-align: center;
   line-height: 32px;
   font-size: 18px;
 }
 .name:hover {
-  color: #4a73e2;
+  color: #41b582;
 }
 
 ul {
   list-style-type: none;
-  width: 200px;
+  width: 120px;
   padding: 0;
   position: absolute;
-  left: 0;
-  top: 18px;
+  left: 0px;
+  top: 25px;
   border: 1px solid #cccccc;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 4px;
 }
 ul li {

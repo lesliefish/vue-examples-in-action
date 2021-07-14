@@ -5,7 +5,9 @@
         <img class="logo-img" alt="Vue logo" src="../assets/logo.png" />
         <span class="page-title">{{ title }}</span>
       </div>
-      <classify-menu-list></classify-menu-list>
+      <classify-menu-list
+        @chooseEvent="pageChanged"
+      ></classify-menu-list>
     </div>
   </div>
 </template>
@@ -22,6 +24,11 @@ export default {
     return {
       title: "Vue.js 实践",
     };
+  },
+  methods: {
+    pageChanged: function (mainPage, subPage) {
+      alert(mainPage + ',' +  subPage);
+    },
   },
 };
 </script>

@@ -5,6 +5,7 @@
       :key="item.name"
       :name="item.name"
       :subItems="item.subItems"
+      @chooseEvent="chooseEvent($event, item.name)"
     ></classify-menu>
   </div>
 </template>
@@ -26,23 +27,23 @@ export default {
             name: "Ui",
             subItems: [
               {
-                name: "滚动条",
+                name: "Scroll",
                 target: "KK",
               },
               {
-                name: "BBB",
+                name: "List",
                 target: "KK",
               },
               {
-                name: "CCC",
+                name: "Table",
                 target: "KK",
               },
               {
-                name: "DDD",
+                name: "Layout",
                 target: "KK",
               },
               {
-                name: "EEE",
+                name: "Grid",
                 target: "KK",
               },
             ],
@@ -51,19 +52,19 @@ export default {
             name: "Media",
             subItems: [
               {
-                name: "AAA",
+                name: "Music",
                 target: "KK",
               },
               {
-                name: "BBB",
+                name: "Video",
                 target: "KK",
               },
               {
-                name: "CCC",
+                name: "Audio",
                 target: "KK",
               },
               {
-                name: "DDD",
+                name: "Tool",
                 target: "KK",
               },
               {
@@ -76,7 +77,7 @@ export default {
             name: "Elements",
             subItems: [
               {
-                name: "AAA",
+                name: "input",
                 target: "KK",
               },
               {
@@ -97,8 +98,49 @@ export default {
               },
             ],
           },
+          {
+            name: "Input",
+            subItems: [
+              {
+                name: "Music",
+                target: "KK",
+              },
+            ],
+          },
+          {
+            name: "Menu",
+            subItems: [
+              {
+                name: "Music",
+                target: "KK",
+              },
+            ],
+          },
+          {
+            name: "Components",
+            subItems: [
+              {
+                name: "Music",
+                target: "KK",
+              },
+            ],
+          },
+          {
+            name: "More",
+            subItems: [
+              {
+                name: "Music",
+                target: "KK",
+              },
+            ],
+          },
         ];
       },
+    },
+  },
+  methods: {
+    chooseEvent: function (subPageName, name) {
+      this.$emit("chooseEvent", name, subPageName);
     },
   },
 };
