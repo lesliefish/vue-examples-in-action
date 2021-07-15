@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import ClassifyMenuList from "./ClassifyMenuList";
+import ClassifyMenuList from "../components/ClassifyMenuList";
 export default {
   name: "Header",
   components: {
@@ -27,7 +27,8 @@ export default {
   },
   methods: {
     pageChanged: function (mainPage, subPage) {
-      alert(mainPage + ',' +  subPage);
+      console.log(mainPage + ',' +  subPage);
+      this.$router.push(mainPage.toLowerCase()); // 页面跳转
     },
   },
 };
@@ -40,7 +41,7 @@ export default {
   border-bottom: 1px solid #cccccc;
 }
 .main {
-  width: 50%;
+  width: 70%;
   margin: auto;
   margin-top: 9px;
 
