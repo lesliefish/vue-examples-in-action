@@ -22,7 +22,7 @@ export default {
   props: {},
   data: function () {
     return {
-      title: "Vue.js 实践",
+      title: "Vue.js",
     };
   },
   methods: {
