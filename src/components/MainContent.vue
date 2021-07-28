@@ -13,7 +13,7 @@
 
 <script>
 import ExampleItem from "./ExampleItem/ExampleItem.vue";
-
+import Datas from "./../resource/datas.json"
 export default {
   name: "MainContent",
   components: {
@@ -21,7 +21,8 @@ export default {
   },
   data: function () {
     let datas = { items: [] };
-    for (let index = 0; index < 10; index++) {
+    for (let index = 0; index < 3; index++) {
+      alert(JSON.stringify(Datas))
       datas.items.push({
         index: index + 1,
         itemDetail: {
